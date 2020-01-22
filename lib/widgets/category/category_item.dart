@@ -11,7 +11,10 @@ class CategoryItem extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(15),
       decoration: categoryItemDecoration(color),
-      child: Text(title),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.title,
+      ),
     );
   }
 }
