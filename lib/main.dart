@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:meals/screens/categories_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(App());
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: null,
+      title: 'Meals App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: CategoriesScreen(),
     );
   }
 }
