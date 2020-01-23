@@ -14,7 +14,7 @@ class CategoriesList extends StatelessWidget {
         crossAxisSpacing: 20,
       ),
       children: STUB_CATEGORIES.map((category) {
-        return CategoryItem(category.title, category.color);
+        return CategoryItem(category.id, category.title, category.color);
       }).toList(),
     );
   }
