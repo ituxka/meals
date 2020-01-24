@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals/widgets/filters/filters.dart';
 import 'package:meals/widgets/main_drawer.dart';
 
 class FiltersScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class FiltersScreen extends StatelessWidget {
         title: Text(title),
       ),
       drawer: MainDrawer(),
-      body: Text('FiltersScreen StatelessWidget'),
+      body: Filters(),
     );
   }
 }
