@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/models/meal.dart';
+import 'package:meals/screens/meal_detail_screen.dart';
 import 'package:meals/utils/extensions/enum_to_string.dart';
 
 class MealItem extends StatelessWidget {
@@ -7,12 +8,17 @@ class MealItem extends StatelessWidget {
 
   final Meal meal;
 
-  void onMealSelect() {}
+  void onMealSelect(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      MealDetailScreen.routeName,
+      arguments: meal,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onMealSelect,
+      onTap: () => onMealSelect(context),
       child: Card(
         margin: EdgeInsets.all(10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
