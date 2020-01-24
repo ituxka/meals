@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:meals/models/filters.dart';
+import 'package:provider/provider.dart';
 
-class Filters extends StatefulWidget {
-  @override
-  _FiltersState createState() => _FiltersState();
-}
-
-class _FiltersState extends State<Filters> {
-  var _isGlutenFree = false;
-  var _isLactoseFree = false;
-  var _isVegan = false;
-  var _isVegetarian = false;
-
+class Filters extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,34 +15,19 @@ class _FiltersState extends State<Filters> {
           ),
         ),
         Expanded(
-          child: ListView(
-            children: <Widget>[
-              SwitchListTile(
-                title: Text('Gluten-free'),
-                subtitle: Text('Only include gluten-free meals.'),
-                value: _isGlutenFree,
-                onChanged: (bool value) => setState(() => _isGlutenFree = value),
-              ),
-              SwitchListTile(
-                title: Text('Lactose-free'),
-                subtitle: Text('Only include gluten-free meals.'),
-                value: _isLactoseFree,
-                onChanged: (bool value) => setState(() => _isLactoseFree = value),
-              ),
-              SwitchListTile(
-                title: Text('Vegan'),
-                subtitle: Text('Only include vegan meals.'),
-                value: _isVegan,
-                onChanged: (bool value) => setState(() => _isVegan = value),
-              ),
-              SwitchListTile(
-                title: Text('Vegetarian'),
-                subtitle: Text('Only include vegeterian meals.'),
-                value: _isVegetarian,
-                onChanged: (bool value) => setState(() => _isVegetarian = value),
-              ),
-            ],
-          ),
+          child: Consumer<FiltersModel>(builder: (_, filtersModel, __) {
+            return ListView(
+              children: <Widget>[
+                for (final filter in filtersModel.filters)
+                  SwitchListTile(
+                    title: Text(filter.title),
+                    subtitle: Text(filter.subtitle),
+                    value: filter.value,
+                    onChanged: (bool value) => filtersModel.setFilter(filter, value),
+                  ),
+              ],
+            );
+          }),
         ),
       ],
     );
