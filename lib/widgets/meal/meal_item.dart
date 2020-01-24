@@ -46,7 +46,7 @@ class MealItem extends StatelessWidget {
 
 typedef Widget ImageDecorationFn(String url);
 
-final ImageDecorationFn image = (String url) {
+Widget image(String url) {
   return ClipRRect(
     borderRadius: BorderRadius.only(
       topLeft: Radius.circular(15),
@@ -74,11 +74,9 @@ final ImageDecorationFn image = (String url) {
       ),
     ),
   );
-};
+}
 
-typedef Stack ImageWithCaptionFn(String imageUrl, String caption);
-
-final ImageWithCaptionFn imageWithCaption = (String imageUrl, String caption) {
+Stack imageWithCaption(String imageUrl, String caption) {
   return Stack(
     children: <Widget>[
       image(imageUrl),
@@ -101,11 +99,9 @@ final ImageWithCaptionFn imageWithCaption = (String imageUrl, String caption) {
       ),
     ],
   );
-};
+}
 
-typedef Widget MealDescriptionDetailFn(IconData icon, String text);
-
-final MealDescriptionDetailFn mealDescriptionDetail = (IconData icon, String text) {
+Widget mealDescriptionDetail(IconData icon, String text) {
   return Row(
     children: <Widget>[
       Icon(icon),
@@ -113,4 +109,4 @@ final MealDescriptionDetailFn mealDescriptionDetail = (IconData icon, String tex
       Text(text),
     ],
   );
-};
+}

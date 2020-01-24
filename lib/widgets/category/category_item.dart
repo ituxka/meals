@@ -36,9 +36,7 @@ class CategoryItem extends StatelessWidget {
 
 final BorderRadius categoryItemBorderRadius = BorderRadius.circular(15);
 
-typedef BoxDecoration CategoryItemDecorationFn(Color color);
-
-CategoryItemDecorationFn categoryItemDecoration = (Color color) {
+BoxDecoration categoryItemDecoration(Color color) {
   return BoxDecoration(
     gradient: LinearGradient(
       colors: [
@@ -50,4 +48,4 @@ CategoryItemDecorationFn categoryItemDecoration = (Color color) {
     ),
     borderRadius: categoryItemBorderRadius,
   );
-};
+}

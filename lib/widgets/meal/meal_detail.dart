@@ -24,9 +24,7 @@ class MealDetail extends StatelessWidget {
   }
 }
 
-typedef Widget ImageFn(String imageUrl);
-
-final ImageFn image = (String imageUrl) {
+Widget image(String imageUrl) {
   return Container(
     height: 300,
     width: double.infinity,
@@ -35,11 +33,9 @@ final ImageFn image = (String imageUrl) {
       fit: BoxFit.cover,
     ),
   );
-};
+}
 
-typedef Widget SectionTitleFn(BuildContext context, String title);
-
-final SectionTitleFn sectionTitle = (BuildContext context, String title) {
+Widget sectionTitle(BuildContext context, String title) {
   return Container(
     margin: EdgeInsets.symmetric(vertical: 10),
     child: Text(
@@ -47,11 +43,9 @@ final SectionTitleFn sectionTitle = (BuildContext context, String title) {
       style: Theme.of(context).textTheme.title,
     ),
   );
-};
+}
 
-typedef Widget SectionListContainerFn({Widget child});
-
-final SectionListContainerFn sectionListContainer = ({Widget child}) {
+Widget sectionListContainer({Widget child}) {
   return Container(
     padding: EdgeInsets.all(10),
     decoration: BoxDecoration(
@@ -64,7 +58,7 @@ final SectionListContainerFn sectionListContainer = ({Widget child}) {
     width: 300,
     child: child,
   );
-};
+}
 
 typedef Widget BuildItemFn<T>(BuildContext context, T item, int index);
 typedef SectionsListFn = ListView Function<T>(List<T> list, BuildItemFn<T> item);
